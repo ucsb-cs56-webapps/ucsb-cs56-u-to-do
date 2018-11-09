@@ -11,3 +11,5 @@ Sihua
 
 Mentor: 
 Diego
+
+This project is a to-do list web-app that allows the user to create a list of items they need to accomplish giving them a way to organize their schedule
