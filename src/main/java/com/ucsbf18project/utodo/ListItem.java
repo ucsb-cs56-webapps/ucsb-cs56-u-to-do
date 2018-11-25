@@ -1,11 +1,29 @@
-public class ListItem implements Comparable<ListItem> {
+package com.ucsbf18project.utodo;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
+public class ListItem implements Serializable, Comparable<ListItem> {
     private int urgency;
-    private String dueDate;
+    private Date dueDateAndTime;
     private String message;
+    private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("M/d/yyyy h:mm a");
     
-    ListItem(int urgency, String dueDate, String message) {
-        this.urgency = urgency;
-        this.dueDate = dueDate;
+    ListItem() {  
+    }
+    
+    ListItem(int urgency, String dueDateAndTime, String message) {
+        changeUrgency(urgency);
+        changeDueDateAndTime(dueDateAndTime);
+        this.message = message;
+    }
+    
+    public String getMessage() {
+        return this.message;
+    }
+    
+    public void setMessage(String message) {
         this.message = message;
     }
     
@@ -13,23 +31,38 @@ public class ListItem implements Comparable<ListItem> {
         return this.urgency;
     }
     
+    public void setUrgency(int urgency) {
+        changeUrgency(urgency);
+    }
+    
+    public Date getDueDatAndTime() {
+        return this.dueDateAndTime;
+    }
+    
+    public void setDueDateAndTime(String dueDateAndTime) {
+        changeDueDateAndTime(dueDateAndTime);
+    }
+    
+    private boolean changeDueDateAndTime(String dueDateAndTime) {
+        try {
+            dateTimeFormat.parse(dueDateAndTime);
+            this.dueDateAndTime = new Date(dueDateAndTime);
+            return true;
+        } catch(Exception e) {
+            this.dueDateAndTime = new Date("01/01/2018 12:00 PM");
+            return false;
+        }
+    }
+    
     // Can set urgency on a scale from 1-3. If an argument is passed to this 
     // method that isn't in that range the To-Do gets a default urgency of 1.
-    public boolean setUrgency(int urgency) {
+    private boolean changeUrgency(int urgency) {
         if(urgency >= 0 && urgency <= 3) {
             this.urgency = urgency; 
             return true;
         }
         this.urgency = 1;
         return false;
-    }
-    
-    public String getDueDate() {
-        return this.dueDate;
-    }
-    
-    public void setDate(String dueDate) {
-        this.dueDate = dueDate;
     }
     
     @Override
@@ -43,18 +76,17 @@ public class ListItem implements Comparable<ListItem> {
         ListItem listItemToCheck = (ListItem)aListItem;
         return ( (this.urgency == listItemToCheck.urgency) &&
                 this.message.equals(listItemToCheck.message) &&
-                this.dueDate.equals(listItemToCheck.dueDate) );
+                this.dueDateAndTime.equals(listItemToCheck.dueDateAndTime) );
     }
-    
-    // hashCode uses the dueDate of the ListItem by default.
+  
     @Override
     public int hashCode() {
-        return dueDate.hashCode();
+        return (this.message + this.urgency + dueDateAndTime.toString()).hashCode();
     }
     
     @Override
     public String toString() {
-        String retStr = "Due Date: " + this.dueDate + "\nUrgency: ";
+        String retStr = "Due Date: " + dateTimeFormat.format(this.dueDateAndTime) + "\nUrgency: ";
         if(this.urgency == 1) {
             retStr += "Not Urgent\n";
         } else if(this.urgency == 2) {
@@ -71,16 +103,10 @@ public class ListItem implements Comparable<ListItem> {
     // The default sorting method is to sort by due date
     @Override
     public int compareTo(ListItem item) {
-        String[] moDayYr1 = this.getDueDate().split("/");
-            String[] moDayYr2 = item.getDueDate().split("/");
-            // Compare the years
-            if( !(moDayYr1[2].equals(moDayYr2[2])) ) {
-                return moDayYr1[2].compareTo(moDayYr2[2]);
-            // Compare the months
-            } else if( !(moDayYr1[0].equals(moDayYr2[0])) ) {
-                return moDayYr1[0].compareTo(moDayYr2[0]);
-            } else {
-                return moDayYr1[1].compareTo(moDayYr2[1]);
-            }
-    }
+        if(this.dueDateAndTime.equals(item.dueDateAndTime)) {
+            return item.getUrgency() - this.getUrgency();
+        } else {
+            return this.dueDateAndTime.compareTo(item.dueDateAndTime);
+        }
+    }     
 }
