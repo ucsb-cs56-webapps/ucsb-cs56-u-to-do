@@ -20,8 +20,8 @@
   <p id="userprompt"></p>
   <p id="testdate"></p>
 
-	<script>
-		const Username=document.getElementById("username");
+  <script>	
+  const Username=document.getElementById("username");
   const password=document.getElementById("pass");
 
   const btnlogin=document.getElementById("login");
@@ -77,7 +77,7 @@
 	  ol.innerHTML="";
     }
   });
-	</script>
+  </script>
 
 
 	<div>

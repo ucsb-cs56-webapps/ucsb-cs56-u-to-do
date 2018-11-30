@@ -2,9 +2,6 @@ function input() {
   var message_ = document.getElementById("todo");
   var date_ = document.getElementById("date");
   var urgency_ = document.getElementById("urgency");
-  //alert(message_.value);
-  //alert(date_.value);
-  //alert(urgency_.value);
   var datearray;
   var outputdate="";
   var format1=new RegExp(/^(19|20)[0-9][0-9][-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/);
