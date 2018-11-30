@@ -18,5 +18,5 @@ URL to main webapp: https://ucsb-cs56-u-to-do.herokuapp.com
 
 
 
-Link to Running Version of Side Project (Firebase login issue): https://utodo2.herokuapp.com/index.html
+Link to Running Version of Side Project (Firebase login issue): https://utodo2.herokuapp.com/index.html.
 To test the side project enter an email (doesn't have to be a valid email just the proper format) as the user name, enter a password, and select "sign up". A "sign out" button will appear indicating that you are signed in and have access to the database.
