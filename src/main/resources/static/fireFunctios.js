@@ -57,6 +57,70 @@ function deletenode(eventsid){
 	if(event.urgency=="veryUrgent")
 		return 0;
 }
+
+function gotData2(data){
+	if(data.val()==null){
+		var todos=document.getElementById("todolist");
+		todos.innerHTML="";
+		return;
+	}
+		
+    //console.log(data.val());
+    var todos = data.val();
+    var keys = Object.keys(todos).sort((a,b)=>{
+		return sortKeysByDates(todos[a],todos[b]);
+	});
+	var ol=document.getElementById("todolist");
+	ol.innerHTML="";
+    //console.log(keys);
+    
+    for(var i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      var date = todos[k].date;
+      var message = todos[k].message;
+      console.log(date, message);
+      console.log("----");
+	  
+	  var span = document.createElement("SPAN");
+	  var closebtn = document.createTextNode("\u00D7");
+	  span.appendChild(closebtn);
+	  
+	  span.addEventListener('click',e=>{
+		var eventsid=e.target.parentElement.id;
+		deletenode(eventsid);
+	  });
+
+
+      var li = document.createElement("LI");
+	  var textnode=document.createTextNode(date+": "+message);
+	  li.appendChild(textnode);
+	  li.appendChild(span);
+	  
+
+
+      li.setAttribute("id",k);
+	  ol.appendChild(li);
+
+   }
+}
+
+function sortKeysByDates(o1,o2){
+	return sortByDates(o1.date,o2.date);
+}
+
+function sortByDates(d1,d2){
+	var d1array=d1.split("/");
+	var d2array=d2.split("/");
+	if(d1array[2]!=d2array[2])
+		return d1array[2]-d2array[2];
+	else if(d1array[0]!=d2array[1])
+		return d1array[0]-d2array[0];
+	else if(d1array[1]!=d2array[1])
+		return d1array[1]-d2array[1];
+	
+	
+	return 0;
+}
  
  function sortByUrgency(o1,o2){
 	return convertUrgencyToInteger(o1)-convertUrgencyToInteger(o2);
