@@ -12,16 +12,16 @@
 
 <!-- App Firebase setup -->
 
-<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyCfTYTnZ4dTtcQ7J_02TQVIMDLGlRGV618",
-    authDomain: "u-to-do.firebaseapp.com",
-    databaseURL: "https://u-to-do.firebaseio.com",
-    projectId: "u-to-do",
-    storageBucket: "u-to-do.appspot.com",
-    messagingSenderId: "596921244530"
+    apiKey: "AIzaSyAJ807d9okWF5-ywUU68SGBBKug1VYCM9g",
+    authDomain: "u-to-do-list.firebaseapp.com",
+    databaseURL: "https://u-to-do-list.firebaseio.com",
+    projectId: "u-to-do-list",
+    storageBucket: "u-to-do-list.appspot.com",
+    messagingSenderId: "297980792651"
   };
   firebase.initializeApp(config);
 </script>
