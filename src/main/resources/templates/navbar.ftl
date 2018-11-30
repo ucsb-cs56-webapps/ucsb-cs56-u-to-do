@@ -8,16 +8,9 @@
         <ul class="navbar-nav mr-auto">
             
 			<li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-			</li>
-			<li class="nav-item">
                 <a class="nav-link" href="/setting">Settings</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/edit">Edit</a>
-			</li>
-        
-
+       
         </ul>
     </div>
 </nav>
