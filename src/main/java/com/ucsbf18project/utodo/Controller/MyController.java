@@ -7,24 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyController{
 	
-	@RequestMapping("/")
+    @RequestMapping("/")
     public String Index(Model model) {
-
         return "index";
     }
 	
-	@RequestMapping("/login")
-	public String Login(Model model){
-		return "login";
-	}
-	
-	@RequestMapping("/edit")
-	public String Edit(Model model){
-		return "edit";
-	}
-	
-	@RequestMapping("/setting")
-	public String Settings(Model model){
-		return "settings";
-	}
+    @RequestMapping("/setting")
+    public String Settings(Model model){
+	return "settings";
+    }
+
 }
