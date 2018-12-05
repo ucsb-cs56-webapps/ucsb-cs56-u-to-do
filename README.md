@@ -36,7 +36,7 @@ URL to main webapp: https://ucsb-cs56-u-to-do.herokuapp.com
 7. To remove an entry from the list click on the "x" located to the right of the to-do you want to delete. 
 8. To log out of the webapp click the "Sign out" 
 
-
+<br/>
 
 Link to Running Version of Side Project #1 (Firebase login issue): https://utodo2.herokuapp.com/index.html -- Link to Repo:  https://github.com/ucsb-cs56-f18/sk-u-to-do-issue4. To test the side project enter an email (doesn't have to be a valid email just the proper email format) as the user name, enter a password, and select "sign up". A "sign out" button will appear indicating that you are signed in and have access to the database.
 
