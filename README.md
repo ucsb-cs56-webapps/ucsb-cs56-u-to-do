@@ -20,7 +20,7 @@ URL to main webapp: https://ucsb-cs56-u-to-do.herokuapp.com
 In order to run the application locally, perform the following steps:
 1. clone the repo locally
 2. From the file path, execute the command: mvn spring-boot:run
-3. Go to http://localhost:8080/ in your browser
+3. Go to localhost:8080 in your browser
 
 
 
