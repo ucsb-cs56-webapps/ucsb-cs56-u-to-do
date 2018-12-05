@@ -18,10 +18,10 @@ URL to main webapp: https://ucsb-cs56-u-to-do.herokuapp.com
 
 
 In order to run the application locally, perform the following steps:
-1. clone the repo locally
-2. From the file path, execute the command: mvn spring-boot:run
-3. Go to localhost:8080 in your browser
-
+1. Clone the repo
+2. Extract the zip of the repo you cloned into your local file path
+3. From the folder in your file path, execute the command: "mvn spring-boot:run"
+4. Go to localhost:8080 in your browser.
 
 
 Link to Running Version of Side Project #1 (Firebase login issue): https://utodo2.herokuapp.com/index.html -- Link to Repo:  https://github.com/ucsb-cs56-f18/sk-u-to-do-issue4. To test the side project enter an email (doesn't have to be a valid email just the proper format) as the user name, enter a password, and select "sign up". A "sign out" button will appear indicating that you are signed in and have access to the database.
