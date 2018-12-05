@@ -23,10 +23,10 @@ URL to main webapp: https://ucsb-cs56-u-to-do.herokuapp.com
 3. From the folder in your file path, execute the command: "mvn spring-boot:run"
 4. Go to localhost:8080 in your browser.
 
- - In order to run the application on Heroku 
+ - In order to run the application on Heroku:
 1. Go to the following url: https://ucsb-cs56-u-to-do.herokuapp.com
 
- - Once you are on the main page of the webapp do the following to test its features.
+ - Once you are on the main page of the webapp do the following to test its features:
 1. Enter an email address in the field labeled "Username."
 2. Enter a password in the field labeled "Password."
 3. Select the "Sign Up." button. You have now created an account. 
