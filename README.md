@@ -52,16 +52,19 @@ Before starting adding anything to this project, you should probably go and set 
 
 Copy this:
 
+~~~
 {
   "notUrgent" : true,
   "urgent" : true,
   "veryUrgent" : true
 }
+~~~
 
 to /urgencyCategory in firebase database
 
 Copy this:
 
+~~~
 {
   /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
   "rules": {
@@ -86,6 +89,7 @@ Copy this:
     }
   }
 }
+~~~
 
 to rules in firebase database.
 
