@@ -45,3 +45,62 @@ Link to Running Version of Side Project #1 (Firebase login issue): https://utodo
 Line to repo for Side Project #2 (Create a to-do list using a java data structure): https://github.com/ucsb-cs56-f18/ucsb-cs56-f18-u-to-do-side-issue-2. To test this code fork the repo and from the top of the directory type the following lines into the console window: "javac ToDoListTest.java" and "java ToDoList".
 
 
+# f18 final remarks
+
+Before starting adding anything to this project, you should probably go and set up your firebase by setting up the firebase account. Then hit the add-project button, and set up your firebase for this webapp. 
+
+
+Copy this:
+
+~~~
+{
+  "notUrgent" : true,
+  "urgent" : true,
+  "veryUrgent" : true
+}
+~~~
+
+to /urgencyCategory in firebase database
+
+Copy this:
+
+~~~
+{
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    "$uid": {
+      ".read": "auth.uid == $uid",
+      ".write": true,
+      "$events": {
+        ".validate": "newData.hasChildren(['date','message','urgency'])",
+        "date": {
+          ".validate": "newData.val().matches(/^(0[1-9]|1[012])[\/](0[1-9]|[12][0-9]|3[01])[\/]((19|20)[0-9][0-9])$/)"
+        },
+        "message": {
+          ".validate": "newData.isString() && newData.val().length<100"
+        },
+        "urgency": {
+          ".validate": "newData.isString() && root.child('urgencyCategory/'+newData.val()).exists()"
+        },
+        "$others": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
+~~~
+
+to rules in firebase database.
+
+Once you have your database,
+
+go to settings/general/
+
+then click "Add Firebase to your webapp"
+and copy the information anywhere in head_common.ftl
+
+The database should be working.
+
+For more firebase guidance, this has information you need: https://firebase.google.com/docs/web/setup?authuser=0
+
